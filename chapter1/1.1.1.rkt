@@ -8,3 +8,29 @@
 (- 1000 334)
 
 (+ 2.7 10)
+
+(+ (* 3 5) (- 10 6))
+
+(define size 2)
+
+size
+
+(define (square x) (* x x))
+
+(square 2)
+(square (+ 2 5))
+
+(define (abs2 x)
+  (cond ((> x 0) x)
+        ((= x 0) 0)
+        ((< x 0) (- x))))
+
+(abs2 10)
+(abs2 -11)
+
+
+
+
+
+
+
