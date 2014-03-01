@@ -29,6 +29,19 @@ size
 (abs2 -11)
 
 
+10
+
+(define a 3)
+(define b (+ a 1))
+
+(+ a b (* a b))
+
+(= a b)
+
+(* (cond ((> a b) a)
+         ((< a b) b)
+         (else -1))
+   (+ a 1))
 
 
 
