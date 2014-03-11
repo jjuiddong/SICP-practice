@@ -1,5 +1,5 @@
 
-;problem 1.29
+;problem 1.29, 1.30
 ;simpson's rule
 
 (define (cube x) (* x x x))
@@ -22,8 +22,8 @@
     (cond ((= k n) (f b))
           ((= k 0) (+ (f a) 
                         (iter (+ k 1))))
-          ((even? k) (* (f (yk k)) 2)
-                       + (iter (+ k 1)))
+          ((even? k) (+ (* (f (yk k)) 2)
+                       (iter (+ k 1))))
           (else (+ (* (f (yk k)) 4)
                    (iter (+ k 1))))))
   (* (iter 0) (/ h 3)))
