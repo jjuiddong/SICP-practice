@@ -9,5 +9,6 @@
         (iter (+ k 1) (compose f result))))
   (iter 1 f))
 
-(define (inc x) (+ x 1))
+
+; (square (square 5))
 ((repeated square 2) 5)
