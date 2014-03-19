@@ -105,5 +105,11 @@
   (try first-guess))
 
 
+; problem 1.44
+(define (repeated f x)
+  (if (= x 1)
+      f
+      (compose f (repeated f (- x 1)))))
+
 
 (provide (all-defined-out))
