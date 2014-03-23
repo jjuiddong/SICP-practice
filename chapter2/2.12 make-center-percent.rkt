@@ -99,14 +99,14 @@
   (/ (- (upper-bound i) (lower-bound i)) 2))
 
 (define (make-center-percent c p)
-  (make-interval (- c (* c p)) (+ c (* c p))))
+  (make-interval (- c (* c (/ p 100))) (+ c (* c (/ p 100)))))
 
 (define (percent i)
-  (/ (width i) (center i)))
+  (* (/ (width i) (center i)) 100))
 
 
-(define p1 (make-center-percent 10 0.3))
-(define p2 (make-center-percent 5 0.2))
+(define p1 (make-center-percent 10 30))
+(define p2 (make-center-percent 5 20))
 (percent p1)
 (width p1)
 (percent p2)
