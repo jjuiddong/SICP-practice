@@ -25,7 +25,7 @@
      (branch-weight (right-branch mobile))))
 
 (define (balance-mobile? mobile)
-  (define (balance? left right)
+  (define (balance-torque? left right)
     (= (* (branch-length left) (branch-weight left))
        (* (branch-length right) (branch-weight right))))
   
@@ -40,7 +40,7 @@
         (right-st (branch-structure (right-branch mobile))))
     (if (and (balance-branch? left)
              (balance-branch? right))
-        (balance? left right)
+        (balance-torque? left right)
         #f)))
   
 

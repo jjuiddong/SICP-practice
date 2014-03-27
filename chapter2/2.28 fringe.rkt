@@ -9,4 +9,4 @@
         (else
          (list items))))
 
-(fringe (list 1 2 3 4 (list 5 6 7)))
+(fringe (list 1 2 3 4 (list 5 6 7 (list 8 9 10))))
