@@ -5,6 +5,9 @@
 ;chapter2, global
 (require racket/base)
 
+(define (square x) (* x x))
+
+
 (define (make-rat n d)
   (let ((g (gcd n d))
         (nn (if (> 0 (* n d)) (- (abs n))
@@ -43,6 +46,30 @@
   (display (numer x))
   (display "/")
   (display (denom x)))
+
+
+;2.2.3
+(define (filter2 predicate sequence)
+  (cond ((null? sequence) null)
+        ((predicate (car sequence))
+         (cons (car sequence)
+               (filter2 predicate (cdr sequence))))
+        (else (filter2 predicate (cdr sequence)))))
+
+
+; 2.2.3
+(define (accumulate op initial sequence)
+  (if (null? sequence)
+      initial
+      (op (car sequence)
+          (accumulate op initial (cdr sequence)))))
+
+
+; 2.2.3
+(define (enumerate-interval low high)
+  (if (> low high)
+      null
+      (cons low (enumerate-interval (+ low 1) high))))
 
 
 
