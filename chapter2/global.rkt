@@ -71,6 +71,16 @@
       null
       (cons low (enumerate-interval (+ low 1) high))))
 
+; 2.2.2
+(define (enumerate-tree tree)
+  (accumulate (lambda (x y)
+                (append
+                 (if (pair? x)
+                     (enumerate-tree x)
+                     (list x))
+                 y))
+              null
+              tree))
 
 
 ; export
