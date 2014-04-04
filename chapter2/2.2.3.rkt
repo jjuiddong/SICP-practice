@@ -10,8 +10,6 @@
                 (enumerate-interval 1 n))))
 
 ;(pair-n 5)
-(define (flatmap proc seq)
-  (accumulate append null (map proc seq)))
 
 (define (prime-sum? pair)
   (prime? (+ (car pair) (cadr pair))))

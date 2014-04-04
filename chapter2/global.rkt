@@ -125,5 +125,9 @@
   (= n (smallest-divisor2 n)))
 
 
+(define (flatmap proc seq)
+  (accumulate append null (map proc seq)))
+
+
 ; export
 (provide (all-defined-out))
