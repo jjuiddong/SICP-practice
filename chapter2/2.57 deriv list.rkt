@@ -1,5 +1,5 @@
-;problem 2.56
-;deriv exponentiation
+;problem 2.57
+;deriv list
 
 (define (variable? x) (symbol? x))
 
@@ -37,11 +37,18 @@
 
 (define (augend s) (cadr s))
 
-(define (addend s) (caddr s))
+(define (addend s)
+  (if (null? (cdddr s))
+      (caddr s)
+      (append '(+) (cddr s))))
+       
 
 (define (multiplicand p) (cadr p))
 
-(define (multiplier p) (caddr p))
+(define (multiplier p) 
+  (if (null? (cdddr p))
+      (caddr p)
+      (append '(*) (cddr p))))  
 
 (define (=number? exp num)
   (and (number? exp) (= exp num)))
@@ -70,7 +77,11 @@
          (error "unknown expression type -- DERIVE" exp))))
 
 
-(deriv '(+ x 3) 'x)
-(deriv '(* x y) 'x)
-(deriv '(* (* x y) (+ x 3)) 'x)
-(deriv '(** x 3) 'x)
+(deriv '(+ x 3 x) 'x)
+(deriv '(* x y (+ x 3)) 'x)
+;(deriv '(* (* x y) (+ x 3)) 'x)
+;(deriv '(** x 3) 'x)
+;'(1 2 3)
+;(pair? (cddr '(1 2)))
+;(append '(+) (list 1 2))
+
